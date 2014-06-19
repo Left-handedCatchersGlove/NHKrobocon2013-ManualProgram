@@ -1,0 +1,1053 @@
+
+legMotor_relay.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  000005f0  00000684  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005f0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000001c  00800104  00800104  00000688  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000688  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000090  00000000  00000000  00000d54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000020  00000000  00000000  00000de4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 000002f9  00000000  00000000  00000e04  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000792  00000000  00000000  000010fd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 0000026f  00000000  00000000  0000188f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000676  00000000  00000000  00001afe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000230  00000000  00000000  00002174  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000452  00000000  00000000  000023a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000000cd  00000000  00000000  000027f6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_pubtypes 000000b6  00000000  00000000  000028c3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 d2 02 	jmp	0x5a4	; 0x5a4 <__vector_16>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 00 01 	jmp	0x200	; 0x200 <__vector_24>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d4 e0       	ldi	r29, 0x04	; 4
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e0 ef       	ldi	r30, 0xF0	; 240
+  7c:	f5 e0       	ldi	r31, 0x05	; 5
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a4 30       	cpi	r26, 0x04	; 4
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	a4 e0       	ldi	r26, 0x04	; 4
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 32       	cpi	r26, 0x20	; 32
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 90 02 	call	0x520	; 0x520 <main>
+  9e:	0c 94 f6 02 	jmp	0x5ec	; 0x5ec <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <I2CSlave_do>:
+		    break;
+	}	
+}
+
+
+static void I2CSlave_do() {
+  a6:	cf 93       	push	r28
+  a8:	df 93       	push	r29
+switch(TWSR) {
+  aa:	80 91 b9 00 	lds	r24, 0x00B9
+  ae:	80 3a       	cpi	r24, 0xA0	; 160
+  b0:	09 f4       	brne	.+2      	; 0xb4 <I2CSlave_do+0xe>
+  b2:	42 c0       	rjmp	.+132    	; 0x138 <I2CSlave_do+0x92>
+  b4:	81 3a       	cpi	r24, 0xA1	; 161
+  b6:	30 f4       	brcc	.+12     	; 0xc4 <I2CSlave_do+0x1e>
+  b8:	80 36       	cpi	r24, 0x60	; 96
+  ba:	59 f0       	breq	.+22     	; 0xd2 <I2CSlave_do+0x2c>
+  bc:	80 38       	cpi	r24, 0x80	; 128
+  be:	09 f0       	breq	.+2      	; 0xc2 <I2CSlave_do+0x1c>
+  c0:	43 c0       	rjmp	.+134    	; 0x148 <I2CSlave_do+0xa2>
+  c2:	12 c0       	rjmp	.+36     	; 0xe8 <I2CSlave_do+0x42>
+  c4:	88 3b       	cpi	r24, 0xB8	; 184
+  c6:	69 f1       	breq	.+90     	; 0x122 <I2CSlave_do+0x7c>
+  c8:	80 3c       	cpi	r24, 0xC0	; 192
+  ca:	b1 f1       	breq	.+108    	; 0x138 <I2CSlave_do+0x92>
+  cc:	88 3a       	cpi	r24, 0xA8	; 168
+  ce:	e1 f5       	brne	.+120    	; 0x148 <I2CSlave_do+0xa2>
+  d0:	16 c0       	rjmp	.+44     	; 0xfe <I2CSlave_do+0x58>
+		case 0x60:  // CB(W)受信
+		    // --- CB(W)受信 ---
+            I2CSlave_initEventListener(TWDR);       // CB受信イベントハンドラ
+  d2:	80 91 bb 00 	lds	r24, 0x00BB
+  d6:	e0 91 1e 01 	lds	r30, 0x011E
+  da:	f0 91 1f 01 	lds	r31, 0x011F
+  de:	09 95       	icall
+			TWCR = I2CSlave_CLEAR_TWINT;            // INT要求フラグのクリア
+  e0:	84 ec       	ldi	r24, 0xC4	; 196
+  e2:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+  e6:	30 c0       	rjmp	.+96     	; 0x148 <I2CSlave_do+0xa2>
+
+		case 0x80:  // データ受信
+		    // --- スレーブ受信 ---
+			I2CSlave_receiveEventListener(TWDR);    // 受信イベントハンドラ
+  e8:	80 91 bb 00 	lds	r24, 0x00BB
+  ec:	e0 91 1c 01 	lds	r30, 0x011C
+  f0:	f0 91 1d 01 	lds	r31, 0x011D
+  f4:	09 95       	icall
+			TWCR = I2CSlave_CLEAR_TWINT;            // INT要求フラグのクリア
+  f6:	84 ec       	ldi	r24, 0xC4	; 196
+  f8:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+  fc:	25 c0       	rjmp	.+74     	; 0x148 <I2CSlave_do+0xa2>
+		 
+		case 0xA8:  // CB(R)受信
+		    // --- CB(R)受信 ----
+			I2CSlave_initEventListener(TWDR);       // CB受信イベントハンドラ
+  fe:	cb eb       	ldi	r28, 0xBB	; 187
+ 100:	d0 e0       	ldi	r29, 0x00	; 0
+ 102:	88 81       	ld	r24, Y
+ 104:	e0 91 1e 01 	lds	r30, 0x011E
+ 108:	f0 91 1f 01 	lds	r31, 0x011F
+ 10c:	09 95       	icall
+			TWDR = I2CSlave_sendEventListener();    // スレーブ送信イベントハンドラ
+ 10e:	e0 91 18 01 	lds	r30, 0x0118
+ 112:	f0 91 19 01 	lds	r31, 0x0119
+ 116:	09 95       	icall
+ 118:	88 83       	st	Y, r24
+			                                        // 送信データ取得
+			TWCR = I2CSlave_CLEAR_TWINT;            // INT要求フラグのクリア
+ 11a:	84 ec       	ldi	r24, 0xC4	; 196
+ 11c:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+ 120:	13 c0       	rjmp	.+38     	; 0x148 <I2CSlave_do+0xa2>
+
+		case 0xB8:  // データ送信(ACK受信)
+		    TWDR = I2CSlave_sendEventListener();    // スレーブ送信イベントハンドラ
+ 122:	e0 91 18 01 	lds	r30, 0x0118
+ 126:	f0 91 19 01 	lds	r31, 0x0119
+ 12a:	09 95       	icall
+ 12c:	80 93 bb 00 	sts	0x00BB, r24
+			                                        // 送信データ取得
+			TWCR = I2CSlave_CLEAR_TWINT;            // INT要求フラグのクリア
+ 130:	84 ec       	ldi	r24, 0xC4	; 196
+ 132:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+ 136:	08 c0       	rjmp	.+16     	; 0x148 <I2CSlave_do+0xa2>
+
+		case 0xC0:  // データ送信(NOACK受信)　採集データ　スレーブ送信終了
+
+		case 0xA0:  // スレーブ受信中のストップコンディション
+			I2CSlave_stopEventListener();
+ 138:	e0 91 1a 01 	lds	r30, 0x011A
+ 13c:	f0 91 1b 01 	lds	r31, 0x011B
+ 140:	09 95       	icall
+		    TWCR = I2CSlave_CLEAR_TWINT;            // INT要求フラグのクリア
+ 142:	84 ec       	ldi	r24, 0xC4	; 196
+ 144:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+	}	
+}
+ 148:	df 91       	pop	r29
+ 14a:	cf 91       	pop	r28
+ 14c:	08 95       	ret
+
+0000014e <initHandler>:
+
+//*************************************************************
+
+
+//***********************I2Cに関しての関数*********************
+void initHandler(uint8_t dat){}
+ 14e:	08 95       	ret
+
+00000150 <recieveHandler>:
+	
+void recieveHandler(uint8_t dat){
+	signals[recieveFlag].key = dat;
+ 150:	90 91 06 01 	lds	r25, 0x0106
+ 154:	e9 2f       	mov	r30, r25
+ 156:	f0 e0       	ldi	r31, 0x00	; 0
+ 158:	ec 5f       	subi	r30, 0xFC	; 252
+ 15a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 15c:	80 83       	st	Z, r24
+	++recieveFlag;
+ 15e:	9f 5f       	subi	r25, 0xFF	; 255
+ 160:	90 93 06 01 	sts	0x0106, r25
+}
+ 164:	08 95       	ret
+
+00000166 <sendHandler>:
+
+uint8_t sendHandler(){
+	MotorSignal ms = signals[sendFlag];
+ 166:	90 91 07 01 	lds	r25, 0x0107
+ 16a:	e9 2f       	mov	r30, r25
+ 16c:	f0 e0       	ldi	r31, 0x00	; 0
+ 16e:	ec 5f       	subi	r30, 0xFC	; 252
+ 170:	fe 4f       	sbci	r31, 0xFE	; 254
+ 172:	80 81       	ld	r24, Z
+	++sendFlag;
+ 174:	9f 5f       	subi	r25, 0xFF	; 255
+ 176:	90 93 07 01 	sts	0x0107, r25
+	return ms.key;
+}
+ 17a:	08 95       	ret
+
+0000017c <stopHandler>:
+
+void stopHandler(){
+	recieveFlag = 0;
+ 17c:	10 92 06 01 	sts	0x0106, r1
+	sendFlag = 0;
+ 180:	10 92 07 01 	sts	0x0107, r1
+}
+ 184:	08 95       	ret
+
+00000186 <wait_motor_a_chattering>:
+
+//*******************モーターのチャタリング*******************
+void wait_motor_a_chattering(void){
+  static int i = 0;
+  
+  if(i < WAIT_RELAY){
+ 186:	80 91 16 01 	lds	r24, 0x0116
+ 18a:	90 91 17 01 	lds	r25, 0x0117
+ 18e:	82 30       	cpi	r24, 0x02	; 2
+ 190:	91 05       	cpc	r25, r1
+ 192:	34 f4       	brge	.+12     	; 0x1a0 <wait_motor_a_chattering+0x1a>
+		i += 1;
+ 194:	01 96       	adiw	r24, 0x01	; 1
+ 196:	90 93 17 01 	sts	0x0117, r25
+ 19a:	80 93 16 01 	sts	0x0116, r24
+ 19e:	08 95       	ret
+  }
+  else{
+		i = 0;
+ 1a0:	10 92 17 01 	sts	0x0117, r1
+ 1a4:	10 92 16 01 	sts	0x0116, r1
+		motor_a_func_p = set_motor_a;
+ 1a8:	8b e2       	ldi	r24, 0x2B	; 43
+ 1aa:	92 e0       	ldi	r25, 0x02	; 2
+ 1ac:	90 93 01 01 	sts	0x0101, r25
+ 1b0:	80 93 00 01 	sts	0x0100, r24
+ 1b4:	08 95       	ret
+
+000001b6 <wait_motor_b_chattering>:
+}
+
+void wait_motor_b_chattering(void){
+  static int i = 0;
+  
+  if(i < WAIT_RELAY){
+ 1b6:	80 91 14 01 	lds	r24, 0x0114
+ 1ba:	90 91 15 01 	lds	r25, 0x0115
+ 1be:	82 30       	cpi	r24, 0x02	; 2
+ 1c0:	91 05       	cpc	r25, r1
+ 1c2:	34 f4       	brge	.+12     	; 0x1d0 <wait_motor_b_chattering+0x1a>
+		i += 1;
+ 1c4:	01 96       	adiw	r24, 0x01	; 1
+ 1c6:	90 93 15 01 	sts	0x0115, r25
+ 1ca:	80 93 14 01 	sts	0x0114, r24
+ 1ce:	08 95       	ret
+  }
+  else{
+        i = 0;
+ 1d0:	10 92 15 01 	sts	0x0115, r1
+ 1d4:	10 92 14 01 	sts	0x0114, r1
+        motor_b_func_p = set_motor_b;
+ 1d8:	8f ec       	ldi	r24, 0xCF	; 207
+ 1da:	91 e0       	ldi	r25, 0x01	; 1
+ 1dc:	90 93 03 01 	sts	0x0103, r25
+ 1e0:	80 93 02 01 	sts	0x0102, r24
+ 1e4:	08 95       	ret
+
+000001e6 <I2CSlave_init>:
+ * 別途sei()で割り込み許可を行う必要があります。
+ * @param address I2Cスレーブアドレス
+ * @param param スレーブ動作を割り込み処理にする場合はINTERRUPT_ONを指定
+ */
+void I2CSlave_init(unsigned char address, I2CSlave_Interrupt param) {
+	address <<= 1;
+ 1e6:	88 0f       	add	r24, r24
+	// address |= 1;    // ジェネラル・コール・アドレス許可
+	TWAR = address;
+ 1e8:	80 93 ba 00 	sts	0x00BA, r24
+	
+	switch(param) {
+ 1ec:	61 30       	cpi	r22, 0x01	; 1
+ 1ee:	21 f4       	brne	.+8      	; 0x1f8 <I2CSlave_init+0x12>
+		case INTERRUPT_ON:
+		    TWCR = I2CSlave_ENABLE_ACK | _BV(TWIE);
+ 1f0:	85 e4       	ldi	r24, 0x45	; 69
+ 1f2:	80 93 bc 00 	sts	0x00BC, r24
+		    break;
+ 1f6:	08 95       	ret
+		default:
+			case INTERRUPT_OFF:
+		    TWCR = I2CSlave_ENABLE_ACK;
+ 1f8:	84 e4       	ldi	r24, 0x44	; 68
+ 1fa:	80 93 bc 00 	sts	0x00BC, r24
+ 1fe:	08 95       	ret
+
+00000200 <__vector_24>:
+}
+
+/**
+* 割り込み処理 TWSRレジスタが更新されたときに呼び出されます
+*/
+ISR(TWI_vect) {
+ 200:	1f 92       	push	r1
+ 202:	0f 92       	push	r0
+ 204:	0f b6       	in	r0, 0x3f	; 63
+ 206:	0f 92       	push	r0
+ 208:	11 24       	eor	r1, r1
+ 20a:	2f 93       	push	r18
+ 20c:	3f 93       	push	r19
+ 20e:	4f 93       	push	r20
+ 210:	5f 93       	push	r21
+ 212:	6f 93       	push	r22
+ 214:	7f 93       	push	r23
+ 216:	8f 93       	push	r24
+ 218:	9f 93       	push	r25
+ 21a:	af 93       	push	r26
+ 21c:	bf 93       	push	r27
+ 21e:	ef 93       	push	r30
+ 220:	ff 93       	push	r31
+	cli();
+ 222:	f8 94       	cli
+	I2CSlave_do();
+ 224:	0e 94 53 00 	call	0xa6	; 0xa6 <I2CSlave_do>
+	sei();
+ 228:	78 94       	sei
+}
+ 22a:	ff 91       	pop	r31
+ 22c:	ef 91       	pop	r30
+ 22e:	bf 91       	pop	r27
+ 230:	af 91       	pop	r26
+ 232:	9f 91       	pop	r25
+ 234:	8f 91       	pop	r24
+ 236:	7f 91       	pop	r23
+ 238:	6f 91       	pop	r22
+ 23a:	5f 91       	pop	r21
+ 23c:	4f 91       	pop	r20
+ 23e:	3f 91       	pop	r19
+ 240:	2f 91       	pop	r18
+ 242:	0f 90       	pop	r0
+ 244:	0f be       	out	0x3f, r0	; 63
+ 246:	0f 90       	pop	r0
+ 248:	1f 90       	pop	r1
+ 24a:	18 95       	reti
+
+0000024c <I2CSlave_setInitEvent>:
+
+void I2CSlave_setInitEvent(void (*func)(uint8_t dat)) {
+	I2CSlave_initEventListener = func;
+ 24c:	90 93 1f 01 	sts	0x011F, r25
+ 250:	80 93 1e 01 	sts	0x011E, r24
+}
+ 254:	08 95       	ret
+
+00000256 <I2CSlave_setReceiveEvent>:
+void I2CSlave_setReceiveEvent(void (*func)(uint8_t dat)) {
+	I2CSlave_receiveEventListener = func;
+ 256:	90 93 1d 01 	sts	0x011D, r25
+ 25a:	80 93 1c 01 	sts	0x011C, r24
+}
+ 25e:	08 95       	ret
+
+00000260 <I2CSlave_setStopEvent>:
+void I2CSlave_setStopEvent(void (*func)(void)) {
+	I2CSlave_stopEventListener = func;
+ 260:	90 93 1b 01 	sts	0x011B, r25
+ 264:	80 93 1a 01 	sts	0x011A, r24
+}
+ 268:	08 95       	ret
+
+0000026a <I2CSlave_setSendEvent>:
+void I2CSlave_setSendEvent(unsigned char (*func)(void)) {
+    I2CSlave_sendEventListener = func;
+ 26a:	90 93 19 01 	sts	0x0119, r25
+ 26e:	80 93 18 01 	sts	0x0118, r24
+}
+ 272:	08 95       	ret
+
+00000274 <I2CSlave_isTWINT>:
+/**
+ * TWCRレジスタのTWINTビットを返します
+ * @return 1 or 0
+*/
+unsigned char I2CSlave_isTWINT() {
+	if((TWCR & (1<<TWINT))) {
+ 274:	80 91 bc 00 	lds	r24, 0x00BC
+		return 1;
+	} else {
+		return 0;
+	}
+}
+ 278:	88 1f       	adc	r24, r24
+ 27a:	88 27       	eor	r24, r24
+ 27c:	88 1f       	adc	r24, r24
+ 27e:	08 95       	ret
+
+00000280 <I2CSlave_com>:
+/**
+ * I2C処理(メインループに入れる)
+ * この関数を実行する前にそれぞれのイベントハンドラを設定してください。
+ */
+void I2CSlave_com() {
+    if(!I2CSlave_isTWINT())	{		
+ 280:	0e 94 3a 01 	call	0x274	; 0x274 <I2CSlave_isTWINT>
+ 284:	88 23       	and	r24, r24
+ 286:	11 f0       	breq	.+4      	; 0x28c <I2CSlave_com+0xc>
+		return;
+	}    
+    I2CSlave_do();	
+ 288:	0e 94 53 00 	call	0xa6	; 0xa6 <I2CSlave_do>
+ 28c:	08 95       	ret
+
+0000028e <chengeSignalToSpeed>:
+void (*motor_a_func_p)(void) = set_motor_a;
+void (*motor_b_func_p)(void) = set_motor_b;
+
+
+//スピード取得
+int chengeSignalToSpeed(MotorSignal signal){
+ 28e:	28 2f       	mov	r18, r24
+ 290:	26 95       	lsr	r18
+	if(signal.direction == FORWARD){
+ 292:	80 fd       	sbrc	r24, 0
+ 294:	02 c0       	rjmp	.+4      	; 0x29a <chengeSignalToSpeed+0xc>
+		return signal.speed;
+ 296:	30 e0       	ldi	r19, 0x00	; 0
+ 298:	04 c0       	rjmp	.+8      	; 0x2a2 <chengeSignalToSpeed+0x14>
+	}	
+    else if(signal.direction == BACKWARD){
+		return signal.speed * -1;
+ 29a:	30 e0       	ldi	r19, 0x00	; 0
+ 29c:	30 95       	com	r19
+ 29e:	21 95       	neg	r18
+ 2a0:	3f 4f       	sbci	r19, 0xFF	; 255
+	}	
+}
+ 2a2:	82 2f       	mov	r24, r18
+ 2a4:	93 2f       	mov	r25, r19
+ 2a6:	08 95       	ret
+
+000002a8 <timer_pwm_init>:
+//**************************************************************
+
+
+//************************初期化関数****************************
+void timer_pwm_init(void){
+	OCR1A = 0xFF;
+ 2a8:	8f ef       	ldi	r24, 0xFF	; 255
+ 2aa:	90 e0       	ldi	r25, 0x00	; 0
+ 2ac:	90 93 89 00 	sts	0x0089, r25
+ 2b0:	80 93 88 00 	sts	0x0088, r24
+	OCR1B = 0xFF;
+ 2b4:	90 93 8b 00 	sts	0x008B, r25
+ 2b8:	80 93 8a 00 	sts	0x008A, r24
+	TCCR1A = 0xF1;
+ 2bc:	81 ef       	ldi	r24, 0xF1	; 241
+ 2be:	80 93 80 00 	sts	0x0080, r24
+	TCCR1B = 0x0A;
+ 2c2:	8a e0       	ldi	r24, 0x0A	; 10
+ 2c4:	80 93 81 00 	sts	0x0081, r24
+}
+ 2c8:	08 95       	ret
+
+000002ca <io_init>:
+
+void io_init(void){
+	PORTB = 0x00;
+ 2ca:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x1E;
+ 2cc:	8e e1       	ldi	r24, 0x1E	; 30
+ 2ce:	84 b9       	out	0x04, r24	; 4
+}
+ 2d0:	08 95       	ret
+
+000002d2 <timer0_init>:
+
+void timer0_init(void){
+	TCCR0B = 0x03;
+ 2d2:	83 e0       	ldi	r24, 0x03	; 3
+ 2d4:	85 bd       	out	0x25, r24	; 37
+	TIMSK0 = 0x01;
+ 2d6:	81 e0       	ldi	r24, 0x01	; 1
+ 2d8:	80 93 6e 00 	sts	0x006E, r24
+}
+ 2dc:	08 95       	ret
+
+000002de <check_sign>:
+//**************************************************************
+
+
+//************************ Math func ***************************
+int check_sign(int i){
+	if(i >= 0){
+ 2de:	99 23       	and	r25, r25
+ 2e0:	1c f0       	brlt	.+6      	; 0x2e8 <check_sign+0xa>
+		return 1;   // + の符号の時  1 を返す
+ 2e2:	21 e0       	ldi	r18, 0x01	; 1
+ 2e4:	30 e0       	ldi	r19, 0x00	; 0
+ 2e6:	02 c0       	rjmp	.+4      	; 0x2ec <check_sign+0xe>
+	}		
+	else{
+		return -1;  // - の符号の時 -1 を返す
+ 2e8:	2f ef       	ldi	r18, 0xFF	; 255
+ 2ea:	3f ef       	ldi	r19, 0xFF	; 255
+	}		
+}
+ 2ec:	82 2f       	mov	r24, r18
+ 2ee:	93 2f       	mov	r25, r19
+ 2f0:	08 95       	ret
+
+000002f2 <absolute>:
+
+int absolute(int i){
+ 2f2:	48 2f       	mov	r20, r24
+ 2f4:	59 2f       	mov	r21, r25
+ 2f6:	9a 01       	movw	r18, r20
+ 2f8:	33 23       	and	r19, r19
+ 2fa:	24 f4       	brge	.+8      	; 0x304 <absolute+0x12>
+ 2fc:	22 27       	eor	r18, r18
+ 2fe:	33 27       	eor	r19, r19
+ 300:	24 1b       	sub	r18, r20
+ 302:	35 0b       	sbc	r19, r21
+		return i;
+	}		
+	if(i < 0){
+		return -i;
+	}		
+}
+ 304:	82 2f       	mov	r24, r18
+ 306:	93 2f       	mov	r25, r19
+ 308:	08 95       	ret
+
+0000030a <set_off_motor_a>:
+
+//*********************** Motor off ***************************
+
+//Motor A off
+void set_off_motor_a(void){
+	OCR1A = 255;
+ 30a:	8f ef       	ldi	r24, 0xFF	; 255
+ 30c:	90 e0       	ldi	r25, 0x00	; 0
+ 30e:	90 93 89 00 	sts	0x0089, r25
+ 312:	80 93 88 00 	sts	0x0088, r24
+}
+ 316:	08 95       	ret
+
+00000318 <set_off_motor_b>:
+
+//Motor B off
+void set_off_motor_b(void){
+	OCR1B = 255;
+ 318:	8f ef       	ldi	r24, 0xFF	; 255
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
+ 31c:	90 93 8b 00 	sts	0x008B, r25
+ 320:	80 93 8a 00 	sts	0x008A, r24
+}
+ 324:	08 95       	ret
+
+00000326 <setSpeedMotorA>:
+
+
+//*************モーターのスピードに関しての関数****************
+void setSpeedMotorA(int spd){
+	int speed;
+	speed = absolute(spd);
+ 326:	0e 94 79 01 	call	0x2f2	; 0x2f2 <absolute>
+	if(speed > 255)
+    speed = 255;
+	OCR1A = 255 - speed;
+ 32a:	28 2f       	mov	r18, r24
+ 32c:	39 2f       	mov	r19, r25
+ 32e:	2f 3f       	cpi	r18, 0xFF	; 255
+ 330:	31 05       	cpc	r19, r1
+ 332:	19 f0       	breq	.+6      	; 0x33a <setSpeedMotorA+0x14>
+ 334:	14 f0       	brlt	.+4      	; 0x33a <setSpeedMotorA+0x14>
+ 336:	2f ef       	ldi	r18, 0xFF	; 255
+ 338:	30 e0       	ldi	r19, 0x00	; 0
+ 33a:	8f ef       	ldi	r24, 0xFF	; 255
+ 33c:	90 e0       	ldi	r25, 0x00	; 0
+ 33e:	82 1b       	sub	r24, r18
+ 340:	93 0b       	sbc	r25, r19
+ 342:	90 93 89 00 	sts	0x0089, r25
+ 346:	80 93 88 00 	sts	0x0088, r24
+}
+ 34a:	08 95       	ret
+
+0000034c <setSpeedMotorB>:
+
+void setSpeedMotorB(int spd){
+	int speed;
+	speed = absolute(spd);
+ 34c:	0e 94 79 01 	call	0x2f2	; 0x2f2 <absolute>
+    if(speed > 255)
+    speed = 255;
+    OCR1B = 255 - speed;
+ 350:	28 2f       	mov	r18, r24
+ 352:	39 2f       	mov	r19, r25
+ 354:	2f 3f       	cpi	r18, 0xFF	; 255
+ 356:	31 05       	cpc	r19, r1
+ 358:	19 f0       	breq	.+6      	; 0x360 <setSpeedMotorB+0x14>
+ 35a:	14 f0       	brlt	.+4      	; 0x360 <setSpeedMotorB+0x14>
+ 35c:	2f ef       	ldi	r18, 0xFF	; 255
+ 35e:	30 e0       	ldi	r19, 0x00	; 0
+ 360:	8f ef       	ldi	r24, 0xFF	; 255
+ 362:	90 e0       	ldi	r25, 0x00	; 0
+ 364:	82 1b       	sub	r24, r18
+ 366:	93 0b       	sbc	r25, r19
+ 368:	90 93 8b 00 	sts	0x008B, r25
+ 36c:	80 93 8a 00 	sts	0x008A, r24
+}
+ 370:	08 95       	ret
+
+00000372 <chenge_direction_a>:
+//*************************************************************
+
+
+//******************** Motor sub func *************************
+void chenge_direction_a(void){
+	PORTB ^= 0x08;
+ 372:	95 b1       	in	r25, 0x05	; 5
+ 374:	88 e0       	ldi	r24, 0x08	; 8
+ 376:	89 27       	eor	r24, r25
+ 378:	85 b9       	out	0x05, r24	; 5
+}
+ 37a:	08 95       	ret
+
+0000037c <chenge_direction_b>:
+
+void chenge_direction_b(void){
+	PORTB ^= 0x10;
+ 37c:	95 b1       	in	r25, 0x05	; 5
+ 37e:	80 e1       	ldi	r24, 0x10	; 16
+ 380:	89 27       	eor	r24, r25
+ 382:	85 b9       	out	0x05, r24	; 5
+}
+ 384:	08 95       	ret
+
+00000386 <limit>:
+
+//*************************************************************
+
+int limit(int val, int min, int max){
+	if(val < min)
+ 386:	86 17       	cp	r24, r22
+ 388:	97 07       	cpc	r25, r23
+ 38a:	34 f0       	brlt	.+12     	; 0x398 <limit+0x12>
+ 38c:	64 2f       	mov	r22, r20
+ 38e:	75 2f       	mov	r23, r21
+ 390:	86 17       	cp	r24, r22
+ 392:	97 07       	cpc	r25, r23
+ 394:	0c f4       	brge	.+2      	; 0x398 <limit+0x12>
+ 396:	bc 01       	movw	r22, r24
+		return min;
+	else if(val > max)
+		return max;
+	else
+		return val;
+}
+ 398:	86 2f       	mov	r24, r22
+ 39a:	97 2f       	mov	r25, r23
+ 39c:	08 95       	ret
+
+0000039e <set_motor_b>:
+		nowspeed = nextspeed;
+		setSpeedMotorA(nowspeed * 2);
+	}
+}	
+
+void set_motor_b(void){
+ 39e:	0f 93       	push	r16
+ 3a0:	1f 93       	push	r17
+ 3a2:	cf 93       	push	r28
+ 3a4:	df 93       	push	r29
+	static int nowspeed = 0;
+	static int nextspeed = 0;
+	
+	if(nextspeed < terget_spd_b)
+ 3a6:	80 91 0c 01 	lds	r24, 0x010C
+ 3aa:	90 91 0d 01 	lds	r25, 0x010D
+ 3ae:	40 91 0a 01 	lds	r20, 0x010A
+ 3b2:	50 91 0b 01 	lds	r21, 0x010B
+ 3b6:	84 17       	cp	r24, r20
+ 3b8:	95 07       	cpc	r25, r21
+ 3ba:	74 f4       	brge	.+28     	; 0x3d8 <set_motor_b+0x3a>
+		nextspeed = limit(nowspeed + CHANGE, -255 / 2, terget_spd_b);
+ 3bc:	80 91 0e 01 	lds	r24, 0x010E
+ 3c0:	90 91 0f 01 	lds	r25, 0x010F
+ 3c4:	49 96       	adiw	r24, 0x19	; 25
+ 3c6:	61 e8       	ldi	r22, 0x81	; 129
+ 3c8:	7f ef       	ldi	r23, 0xFF	; 255
+ 3ca:	0e 94 c3 01 	call	0x386	; 0x386 <limit>
+ 3ce:	90 93 0d 01 	sts	0x010D, r25
+ 3d2:	80 93 0c 01 	sts	0x010C, r24
+ 3d6:	11 c0       	rjmp	.+34     	; 0x3fa <set_motor_b+0x5c>
+	else if(nextspeed > terget_spd_b)
+ 3d8:	48 17       	cp	r20, r24
+ 3da:	59 07       	cpc	r21, r25
+ 3dc:	74 f4       	brge	.+28     	; 0x3fa <set_motor_b+0x5c>
+		nextspeed = limit(nowspeed - CHANGE, terget_spd_b, 255 / 2);
+ 3de:	80 91 0e 01 	lds	r24, 0x010E
+ 3e2:	90 91 0f 01 	lds	r25, 0x010F
+ 3e6:	49 97       	sbiw	r24, 0x19	; 25
+ 3e8:	ba 01       	movw	r22, r20
+ 3ea:	4f e7       	ldi	r20, 0x7F	; 127
+ 3ec:	50 e0       	ldi	r21, 0x00	; 0
+ 3ee:	0e 94 c3 01 	call	0x386	; 0x386 <limit>
+ 3f2:	90 93 0d 01 	sts	0x010D, r25
+ 3f6:	80 93 0c 01 	sts	0x010C, r24
+  
+  if(check_sign(nowspeed) != check_sign(nextspeed)){
+ 3fa:	80 91 0e 01 	lds	r24, 0x010E
+ 3fe:	90 91 0f 01 	lds	r25, 0x010F
+ 402:	0e 94 6f 01 	call	0x2de	; 0x2de <check_sign>
+ 406:	8c 01       	movw	r16, r24
+ 408:	c0 91 0c 01 	lds	r28, 0x010C
+ 40c:	d0 91 0d 01 	lds	r29, 0x010D
+ 410:	ce 01       	movw	r24, r28
+ 412:	0e 94 6f 01 	call	0x2de	; 0x2de <check_sign>
+ 416:	08 17       	cp	r16, r24
+ 418:	19 07       	cpc	r17, r25
+ 41a:	79 f0       	breq	.+30     	; 0x43a <set_motor_b+0x9c>
+	  set_off_motor_b();
+ 41c:	0e 94 8c 01 	call	0x318	; 0x318 <set_off_motor_b>
+	  chenge_direction_b();
+ 420:	0e 94 be 01 	call	0x37c	; 0x37c <chenge_direction_b>
+	  nowspeed = nextspeed;
+ 424:	d0 93 0f 01 	sts	0x010F, r29
+ 428:	c0 93 0e 01 	sts	0x010E, r28
+    motor_b_func_p = wait_motor_b_chattering;
+ 42c:	8b ed       	ldi	r24, 0xDB	; 219
+ 42e:	90 e0       	ldi	r25, 0x00	; 0
+ 430:	90 93 03 01 	sts	0x0103, r25
+ 434:	80 93 02 01 	sts	0x0102, r24
+ 438:	09 c0       	rjmp	.+18     	; 0x44c <set_motor_b+0xae>
+  }
+  else{
+    nowspeed = nextspeed;
+ 43a:	d0 93 0f 01 	sts	0x010F, r29
+ 43e:	c0 93 0e 01 	sts	0x010E, r28
+	  setSpeedMotorB(nowspeed * 2);
+ 442:	ce 01       	movw	r24, r28
+ 444:	88 0f       	add	r24, r24
+ 446:	99 1f       	adc	r25, r25
+ 448:	0e 94 a6 01 	call	0x34c	; 0x34c <setSpeedMotorB>
+  }
+}	
+ 44c:	df 91       	pop	r29
+ 44e:	cf 91       	pop	r28
+ 450:	1f 91       	pop	r17
+ 452:	0f 91       	pop	r16
+ 454:	08 95       	ret
+
+00000456 <set_motor_a>:
+		return val;
+}
+
+
+//********************モーターのメイン処理*********************
+void set_motor_a(void){
+ 456:	0f 93       	push	r16
+ 458:	1f 93       	push	r17
+ 45a:	cf 93       	push	r28
+ 45c:	df 93       	push	r29
+	static int nowspeed = 0;
+	static int nextspeed = 0;
+  
+	if(nextspeed < terget_spd_a)
+ 45e:	80 91 10 01 	lds	r24, 0x0110
+ 462:	90 91 11 01 	lds	r25, 0x0111
+ 466:	40 91 08 01 	lds	r20, 0x0108
+ 46a:	50 91 09 01 	lds	r21, 0x0109
+ 46e:	84 17       	cp	r24, r20
+ 470:	95 07       	cpc	r25, r21
+ 472:	74 f4       	brge	.+28     	; 0x490 <set_motor_a+0x3a>
+		nextspeed = limit(nowspeed + CHANGE, -255 / 2, terget_spd_a);
+ 474:	80 91 12 01 	lds	r24, 0x0112
+ 478:	90 91 13 01 	lds	r25, 0x0113
+ 47c:	49 96       	adiw	r24, 0x19	; 25
+ 47e:	61 e8       	ldi	r22, 0x81	; 129
+ 480:	7f ef       	ldi	r23, 0xFF	; 255
+ 482:	0e 94 c3 01 	call	0x386	; 0x386 <limit>
+ 486:	90 93 11 01 	sts	0x0111, r25
+ 48a:	80 93 10 01 	sts	0x0110, r24
+ 48e:	11 c0       	rjmp	.+34     	; 0x4b2 <set_motor_a+0x5c>
+	else if(nextspeed > terget_spd_a)
+ 490:	48 17       	cp	r20, r24
+ 492:	59 07       	cpc	r21, r25
+ 494:	74 f4       	brge	.+28     	; 0x4b2 <set_motor_a+0x5c>
+		nextspeed = limit(nowspeed - CHANGE, terget_spd_a, 255 / 2);
+ 496:	80 91 12 01 	lds	r24, 0x0112
+ 49a:	90 91 13 01 	lds	r25, 0x0113
+ 49e:	49 97       	sbiw	r24, 0x19	; 25
+ 4a0:	ba 01       	movw	r22, r20
+ 4a2:	4f e7       	ldi	r20, 0x7F	; 127
+ 4a4:	50 e0       	ldi	r21, 0x00	; 0
+ 4a6:	0e 94 c3 01 	call	0x386	; 0x386 <limit>
+ 4aa:	90 93 11 01 	sts	0x0111, r25
+ 4ae:	80 93 10 01 	sts	0x0110, r24
+  
+	if(check_sign(nowspeed) != check_sign(nextspeed)){
+ 4b2:	80 91 12 01 	lds	r24, 0x0112
+ 4b6:	90 91 13 01 	lds	r25, 0x0113
+ 4ba:	0e 94 6f 01 	call	0x2de	; 0x2de <check_sign>
+ 4be:	8c 01       	movw	r16, r24
+ 4c0:	c0 91 10 01 	lds	r28, 0x0110
+ 4c4:	d0 91 11 01 	lds	r29, 0x0111
+ 4c8:	ce 01       	movw	r24, r28
+ 4ca:	0e 94 6f 01 	call	0x2de	; 0x2de <check_sign>
+ 4ce:	08 17       	cp	r16, r24
+ 4d0:	19 07       	cpc	r17, r25
+ 4d2:	79 f0       	breq	.+30     	; 0x4f2 <set_motor_a+0x9c>
+		set_off_motor_a();
+ 4d4:	0e 94 85 01 	call	0x30a	; 0x30a <set_off_motor_a>
+		chenge_direction_a();
+ 4d8:	0e 94 b9 01 	call	0x372	; 0x372 <chenge_direction_a>
+		nowspeed = nextspeed;
+ 4dc:	d0 93 13 01 	sts	0x0113, r29
+ 4e0:	c0 93 12 01 	sts	0x0112, r28
+		motor_a_func_p = wait_motor_a_chattering;
+ 4e4:	83 ec       	ldi	r24, 0xC3	; 195
+ 4e6:	90 e0       	ldi	r25, 0x00	; 0
+ 4e8:	90 93 01 01 	sts	0x0101, r25
+ 4ec:	80 93 00 01 	sts	0x0100, r24
+ 4f0:	09 c0       	rjmp	.+18     	; 0x504 <__stack+0x5>
+	}
+	else{
+		nowspeed = nextspeed;
+ 4f2:	d0 93 13 01 	sts	0x0113, r29
+ 4f6:	c0 93 12 01 	sts	0x0112, r28
+		setSpeedMotorA(nowspeed * 2);
+ 4fa:	ce 01       	movw	r24, r28
+ 4fc:	88 0f       	add	r24, r24
+ 4fe:	99 1f       	adc	r25, r25
+ 500:	0e 94 93 01 	call	0x326	; 0x326 <setSpeedMotorA>
+	}
+}	
+ 504:	df 91       	pop	r29
+ 506:	cf 91       	pop	r28
+ 508:	1f 91       	pop	r17
+ 50a:	0f 91       	pop	r16
+ 50c:	08 95       	ret
+
+0000050e <setTergetSpeed>:
+	  setSpeedMotorB(nowspeed * 2);
+  }
+}	
+
+void setTergetSpeed(int a, int b){
+	terget_spd_a = a;
+ 50e:	90 93 09 01 	sts	0x0109, r25
+ 512:	80 93 08 01 	sts	0x0108, r24
+	terget_spd_b = b;
+ 516:	70 93 0b 01 	sts	0x010B, r23
+ 51a:	60 93 0a 01 	sts	0x010A, r22
+}
+ 51e:	08 95       	ret
+
+00000520 <main>:
+	startMotorFunc();
+}
+
+//************************Main関数****************************
+int main(void)
+{
+ 520:	ef 92       	push	r14
+ 522:	ff 92       	push	r15
+ 524:	0f 93       	push	r16
+ 526:	1f 93       	push	r17
+ 528:	cf 93       	push	r28
+ 52a:	df 93       	push	r29
+	//初期化
+	timer_pwm_init();
+ 52c:	0e 94 54 01 	call	0x2a8	; 0x2a8 <timer_pwm_init>
+	io_init();
+ 530:	0e 94 65 01 	call	0x2ca	; 0x2ca <io_init>
+	timer0_init();
+ 534:	0e 94 69 01 	call	0x2d2	; 0x2d2 <timer0_init>
+	
+	//I2CSlaveの初期化
+	I2CSlave_init(SLAVE_ADDRESS,INTERRUPT_OFF);
+ 538:	82 e0       	ldi	r24, 0x02	; 2
+ 53a:	60 e0       	ldi	r22, 0x00	; 0
+ 53c:	0e 94 f3 00 	call	0x1e6	; 0x1e6 <I2CSlave_init>
+	I2CSlave_setInitEvent(*initHandler);
+ 540:	87 ea       	ldi	r24, 0xA7	; 167
+ 542:	90 e0       	ldi	r25, 0x00	; 0
+ 544:	0e 94 26 01 	call	0x24c	; 0x24c <I2CSlave_setInitEvent>
+	I2CSlave_setSendEvent(*sendHandler);
+ 548:	83 eb       	ldi	r24, 0xB3	; 179
+ 54a:	90 e0       	ldi	r25, 0x00	; 0
+ 54c:	0e 94 35 01 	call	0x26a	; 0x26a <I2CSlave_setSendEvent>
+	I2CSlave_setReceiveEvent(*recieveHandler);
+ 550:	88 ea       	ldi	r24, 0xA8	; 168
+ 552:	90 e0       	ldi	r25, 0x00	; 0
+ 554:	0e 94 2b 01 	call	0x256	; 0x256 <I2CSlave_setReceiveEvent>
+	I2CSlave_setStopEvent(*stopHandler);
+ 558:	8e eb       	ldi	r24, 0xBE	; 190
+ 55a:	90 e0       	ldi	r25, 0x00	; 0
+ 55c:	0e 94 30 01 	call	0x260	; 0x260 <I2CSlave_setStopEvent>
+	
+	//割り込み許可
+	sei();
+ 560:	78 94       	sei
+	
+	while(1){
+		//I2C通信
+		I2CSlave_com();
+		setTergetSpeed(chengeSignalToSpeed(signals[0]),chengeSignalToSpeed(signals[1]));
+ 562:	04 e0       	ldi	r16, 0x04	; 4
+ 564:	11 e0       	ldi	r17, 0x01	; 1
+ 566:	78 01       	movw	r14, r16
+ 568:	08 94       	sec
+ 56a:	e1 1c       	adc	r14, r1
+ 56c:	f1 1c       	adc	r15, r1
+	//割り込み許可
+	sei();
+	
+	while(1){
+		//I2C通信
+		I2CSlave_com();
+ 56e:	0e 94 40 01 	call	0x280	; 0x280 <I2CSlave_com>
+		setTergetSpeed(chengeSignalToSpeed(signals[0]),chengeSignalToSpeed(signals[1]));
+ 572:	f8 01       	movw	r30, r16
+ 574:	80 81       	ld	r24, Z
+ 576:	0e 94 47 01 	call	0x28e	; 0x28e <chengeSignalToSpeed>
+ 57a:	ec 01       	movw	r28, r24
+ 57c:	f7 01       	movw	r30, r14
+ 57e:	80 81       	ld	r24, Z
+ 580:	0e 94 47 01 	call	0x28e	; 0x28e <chengeSignalToSpeed>
+ 584:	bc 01       	movw	r22, r24
+ 586:	ce 01       	movw	r24, r28
+ 588:	0e 94 87 02 	call	0x50e	; 0x50e <setTergetSpeed>
+ 58c:	f0 cf       	rjmp	.-32     	; 0x56e <main+0x4e>
+
+0000058e <startMotorFunc>:
+	terget_spd_a = a;
+	terget_spd_b = b;
+}
+
+void startMotorFunc(void){
+  motor_a_func_p();
+ 58e:	e0 91 00 01 	lds	r30, 0x0100
+ 592:	f0 91 01 01 	lds	r31, 0x0101
+ 596:	09 95       	icall
+  motor_b_func_p();
+ 598:	e0 91 02 01 	lds	r30, 0x0102
+ 59c:	f0 91 03 01 	lds	r31, 0x0103
+ 5a0:	09 95       	icall
+}
+ 5a2:	08 95       	ret
+
+000005a4 <__vector_16>:
+		return signal.speed * -1;
+	}	
+}
+
+//タイマー割り込み関数
+ISR(TIMER0_OVF_vect){
+ 5a4:	1f 92       	push	r1
+ 5a6:	0f 92       	push	r0
+ 5a8:	0f b6       	in	r0, 0x3f	; 63
+ 5aa:	0f 92       	push	r0
+ 5ac:	11 24       	eor	r1, r1
+ 5ae:	2f 93       	push	r18
+ 5b0:	3f 93       	push	r19
+ 5b2:	4f 93       	push	r20
+ 5b4:	5f 93       	push	r21
+ 5b6:	6f 93       	push	r22
+ 5b8:	7f 93       	push	r23
+ 5ba:	8f 93       	push	r24
+ 5bc:	9f 93       	push	r25
+ 5be:	af 93       	push	r26
+ 5c0:	bf 93       	push	r27
+ 5c2:	ef 93       	push	r30
+ 5c4:	ff 93       	push	r31
+	startMotorFunc();
+ 5c6:	0e 94 c7 02 	call	0x58e	; 0x58e <startMotorFunc>
+}
+ 5ca:	ff 91       	pop	r31
+ 5cc:	ef 91       	pop	r30
+ 5ce:	bf 91       	pop	r27
+ 5d0:	af 91       	pop	r26
+ 5d2:	9f 91       	pop	r25
+ 5d4:	8f 91       	pop	r24
+ 5d6:	7f 91       	pop	r23
+ 5d8:	6f 91       	pop	r22
+ 5da:	5f 91       	pop	r21
+ 5dc:	4f 91       	pop	r20
+ 5de:	3f 91       	pop	r19
+ 5e0:	2f 91       	pop	r18
+ 5e2:	0f 90       	pop	r0
+ 5e4:	0f be       	out	0x3f, r0	; 63
+ 5e6:	0f 90       	pop	r0
+ 5e8:	1f 90       	pop	r1
+ 5ea:	18 95       	reti
+
+000005ec <_exit>:
+ 5ec:	f8 94       	cli
+
+000005ee <__stop_program>:
+ 5ee:	ff cf       	rjmp	.-2      	; 0x5ee <__stop_program>

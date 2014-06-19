@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "NHKrobocon-Manual", "NHKrobocon-Manual\NHKrobocon-Manual.cproj", "{62EC5AAB-7765-4565-80F9-A4CD4F024071}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "leafArmMotor_ExtendAndCatch", "leafArmMotor_ExtendAndCatch\leafArmMotor_ExtendAndCatch.cproj", "{6E2C0E66-E0B5-4C7F-8890-61B5E79E72A6}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "legMotor", "legMotor\legMotor.cproj", "{85139FC3-EA95-4EC7-87C9-C0AA2773C37F}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "legMotor_relay", "legMotor_relay\legMotor_relay.cproj", "{AF8A3113-E98E-481C-80FF-2C3E2FCDDA5F}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "legMotor_relay_test", "legMotor_relay_test\legMotor_relay_test.cproj", "{3C257B52-3F99-41BA-BC28-C6C53CA8E71E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62EC5AAB-7765-4565-80F9-A4CD4F024071}.Debug|AVR.ActiveCfg = Debug|AVR
+		{62EC5AAB-7765-4565-80F9-A4CD4F024071}.Debug|AVR.Build.0 = Debug|AVR
+		{62EC5AAB-7765-4565-80F9-A4CD4F024071}.Release|AVR.ActiveCfg = Release|AVR
+		{62EC5AAB-7765-4565-80F9-A4CD4F024071}.Release|AVR.Build.0 = Release|AVR
+		{6E2C0E66-E0B5-4C7F-8890-61B5E79E72A6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{6E2C0E66-E0B5-4C7F-8890-61B5E79E72A6}.Debug|AVR.Build.0 = Debug|AVR
+		{6E2C0E66-E0B5-4C7F-8890-61B5E79E72A6}.Release|AVR.ActiveCfg = Release|AVR
+		{6E2C0E66-E0B5-4C7F-8890-61B5E79E72A6}.Release|AVR.Build.0 = Release|AVR
+		{85139FC3-EA95-4EC7-87C9-C0AA2773C37F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{85139FC3-EA95-4EC7-87C9-C0AA2773C37F}.Debug|AVR.Build.0 = Debug|AVR
+		{85139FC3-EA95-4EC7-87C9-C0AA2773C37F}.Release|AVR.ActiveCfg = Release|AVR
+		{85139FC3-EA95-4EC7-87C9-C0AA2773C37F}.Release|AVR.Build.0 = Release|AVR
+		{AF8A3113-E98E-481C-80FF-2C3E2FCDDA5F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AF8A3113-E98E-481C-80FF-2C3E2FCDDA5F}.Debug|AVR.Build.0 = Debug|AVR
+		{AF8A3113-E98E-481C-80FF-2C3E2FCDDA5F}.Release|AVR.ActiveCfg = Release|AVR
+		{AF8A3113-E98E-481C-80FF-2C3E2FCDDA5F}.Release|AVR.Build.0 = Release|AVR
+		{3C257B52-3F99-41BA-BC28-C6C53CA8E71E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{3C257B52-3F99-41BA-BC28-C6C53CA8E71E}.Debug|AVR.Build.0 = Debug|AVR
+		{3C257B52-3F99-41BA-BC28-C6C53CA8E71E}.Release|AVR.ActiveCfg = Release|AVR
+		{3C257B52-3F99-41BA-BC28-C6C53CA8E71E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

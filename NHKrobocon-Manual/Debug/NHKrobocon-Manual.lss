@@ -1,0 +1,1010 @@
+
+NHKrobocon-Manual.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000554  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000000a  00800100  00800100  000005c8  2**0
+                  ALLOC
+  2 .stab         000006cc  00000000  00000000  000005c8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000090  00000000  00000000  00000c94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000040  00000000  00000000  00000d24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 0000017d  00000000  00000000  00000d64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000a3e  00000000  00000000  00000ee1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000323  00000000  00000000  0000191f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000735  00000000  00000000  00001c42  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000140  00000000  00000000  00002378  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000048e  00000000  00000000  000024b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000319  00000000  00000000  00002946  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_pubtypes 00000131  00000000  00000000  00002c5f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d4 e0       	ldi	r29, 0x04	; 4
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	aa 30       	cpi	r26, 0x0A	; 10
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 58 02 	call	0x4b0	; 0x4b0 <main>
+  88:	0c 94 a8 02 	jmp	0x550	; 0x550 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <I2CMaster_init>:
+ * @param prescaler TWIÇÃÉrÉbÉgë¨ìxÇÃëOíuï™é¸íl
+ */
+void I2CMaster_init(uint8_t bitRate, uint8_t prescaler) {
+    // ÉvÉäÉXÉPÅ[ÉâÇÕâ∫à 2bitÇÃÇ›Ç≈ê›íËÇ≥ÇÍÇ‹Ç∑ÅB
+    // ÇªÇÃÇΩÇﬂÅAè„à 6bitÇÃílÇ0Ç…ÇµÇ‹Ç∑ÅB
+	prescaler &= 0x03;
+  90:	63 70       	andi	r22, 0x03	; 3
+	TWBR = bitRate;
+  92:	80 93 b8 00 	sts	0x00B8, r24
+	TWSR = prescaler;
+  96:	60 93 b9 00 	sts	0x00B9, r22
+	TWCR = _BV(TWEN);
+  9a:	84 e0       	ldi	r24, 0x04	; 4
+  9c:	80 93 bc 00 	sts	0x00BC, r24
+}
+  a0:	08 95       	ret
+
+000000a2 <I2CMaster_stop>:
+/**
+ * ÉXÉgÉbÉvÉRÉìÉfÉBÉVÉáÉìÇî≠çsÇµÇ‹Ç∑ÅB
+ */
+void I2CMaster_stop() {
+	// ÉXÉgÉbÉvÉRÉìÉfÉBÉVÉáÉìÇÃî≠çs
+	TWCR = I2CMaster_STOP_CONDITION;
+  a2:	84 e9       	ldi	r24, 0x94	; 148
+  a4:	80 93 bc 00 	sts	0x00BC, r24
+}
+  a8:	08 95       	ret
+
+000000aa <I2CMaster_read>:
+ * ÉfÅ[É^ÇéÛêMÇµÇ‹Ç∑
+ * @param ack
+ * @return éÛêMÉfÅ[É^
+ */
+unsigned char I2CMaster_read(unsigned char ack) { //0Ç≈éÛêMÇ∑ÇÈÇ™ÅAÇPÇìnÇ∑Ç∆èIóπÇÃçáê}Ç…Ç»ÇÈ
+    if(ack == 0) {
+  aa:	88 23       	and	r24, r24
+  ac:	21 f4       	brne	.+8      	; 0xb6 <I2CMaster_read+0xc>
+        // ACKâûìö
+        TWCR = (I2CMaster_CLEAR_TWINT | 1<<TWEA);
+  ae:	84 ec       	ldi	r24, 0xC4	; 196
+  b0:	80 93 bc 00 	sts	0x00BC, r24
+  b4:	03 c0       	rjmp	.+6      	; 0xbc <I2CMaster_read+0x12>
+    } else {
+        // NOACKâûìö
+        TWCR = I2CMaster_CLEAR_TWINT;
+  b6:	84 e8       	ldi	r24, 0x84	; 132
+  b8:	80 93 bc 00 	sts	0x00BC, r24
+    }
+	
+    // ÉfÅ[É^ÇÃéÛêMäÆóπë“Çø
+    while(!(TWCR & _BV(TWINT))){
+  bc:	ec eb       	ldi	r30, 0xBC	; 188
+  be:	f0 e0       	ldi	r31, 0x00	; 0
+  c0:	80 81       	ld	r24, Z
+  c2:	88 23       	and	r24, r24
+  c4:	ec f7       	brge	.-6      	; 0xc0 <I2CMaster_read+0x16>
+    }
+    return TWDR;
+  c6:	80 91 bb 00 	lds	r24, 0x00BB
+}
+  ca:	08 95       	ret
+
+000000cc <I2CMaster_isTWINT>:
+/**
+ * TWCRÉåÉWÉXÉ^ÇÃTWINTÇÃílÇï‘ÇµÇ‹Ç∑ÅB
+ * @return TWINTÇ™1Ç»ÇÁ1, 0Ç»ÇÁ0
+ */
+unsigned char I2CMaster_isTWINT() {
+    if(TWCR & _BV(TWINT)) {
+  cc:	80 91 bc 00 	lds	r24, 0x00BC
+        return 1;
+    } else {
+        return 0;
+    }
+}
+  d0:	88 1f       	adc	r24, r24
+  d2:	88 27       	eor	r24, r24
+  d4:	88 1f       	adc	r24, r24
+  d6:	08 95       	ret
+
+000000d8 <I2CMaster_isACK>:
+
+unsigned char I2CMaster_isACK() {
+	if((TWSR & 0xF8) == I2CMaster_TWSR_DAT_ACK) {
+  d8:	90 91 b9 00 	lds	r25, 0x00B9
+  dc:	98 7f       	andi	r25, 0xF8	; 248
+	    return 1;
+  de:	81 e0       	ldi	r24, 0x01	; 1
+  e0:	98 32       	cpi	r25, 0x28	; 40
+  e2:	09 f0       	breq	.+2      	; 0xe6 <I2CMaster_isACK+0xe>
+  e4:	80 e0       	ldi	r24, 0x00	; 0
+        case I2CMaster_TWSR_DAT_ACK:// ACK
+            return 1;
+        default:// NOACK
+            return 0;
+    } */
+  e6:	08 95       	ret
+
+000000e8 <I2CMaster_write>:
+ * @param dat ëóêMÇ∑ÇÈÉfÅ[É^
+ * @return 1:ACK / 0:NOACK
+ */
+unsigned char I2CMaster_write(unsigned char dat) {
+    // ëóêMÇ∑ÇÈÉfÅ[É^Çê›íË
+    TWDR = dat;
+  e8:	80 93 bb 00 	sts	0x00BB, r24
+    // ëóêMäJén
+    TWCR = I2CMaster_CLEAR_TWINT;
+  ec:	84 e8       	ldi	r24, 0x84	; 132
+  ee:	80 93 bc 00 	sts	0x00BC, r24
+    // ëóêMäÆóπë“Çø
+    while(!I2CMaster_isTWINT()){
+  f2:	0e 94 66 00 	call	0xcc	; 0xcc <I2CMaster_isTWINT>
+  f6:	88 23       	and	r24, r24
+  f8:	e1 f3       	breq	.-8      	; 0xf2 <I2CMaster_write+0xa>
+    }
+	// ACKÇÃéÛêMäÆóπë“Çø
+	// while(!(TWCR & 1<<TWINT)) {} Ç±ÇÍïsóvÅH óvämîF
+	
+    // ACKílÇÉ`ÉFÉbÉN
+    if(I2CMaster_isACK()) {
+  fa:	0e 94 6c 00 	call	0xd8	; 0xd8 <I2CMaster_isACK>
+        return 1;
+  fe:	91 e0       	ldi	r25, 0x01	; 1
+ 100:	88 23       	and	r24, r24
+ 102:	09 f4       	brne	.+2      	; 0x106 <I2CMaster_write+0x1e>
+ 104:	90 e0       	ldi	r25, 0x00	; 0
+    } else {
+        return 0;
+    }
+}
+ 106:	89 2f       	mov	r24, r25
+ 108:	08 95       	ret
+
+0000010a <I2CMaster_start>:
+ * ÉXÉ^Å[ÉgÉRÉìÉfÉBÉVÉáÉìÇî≠çsÇµÅAÉXÉåÅ[ÉuÇÃÉAÉhÉåÉXÇëóêMÇµÇ‹Ç∑ÅB
+ * (ëóêMÇÃèÍçáÇ≈Ç‡ÉrÉbÉgÉVÉtÉgÇµÇΩÉXÉåÅ[ÉuÉAÉhÉåÉXÇìnÇ∑ïKóvÇÕÇ†ÇËÇ‹ÇπÇÒ)
+ * @param address í êMÇ∑ÇÈÉXÉåÅ[ÉuÉAÉhÉåÉX
+ * @param mode  ëóêM:WRITE(0) or éÛêM:READ(1)ÇéwíË
+ */
+void I2CMaster_start(unsigned char address, I2CMode mode) {
+ 10a:	0f 93       	push	r16
+ 10c:	1f 93       	push	r17
+ 10e:	08 2f       	mov	r16, r24
+ 110:	16 2f       	mov	r17, r22
+	// ÉXÉ^Å[ÉgÉRÉìÉfÉBÉVÉáÉìÇÃî≠çs
+    TWCR = I2CMaster_START_CONDITION;
+ 112:	84 ea       	ldi	r24, 0xA4	; 164
+ 114:	80 93 bc 00 	sts	0x00BC, r24
+    // ÉXÉ^Å[ÉgÉRÉìÉfÉBÉVÉáÉìÇÃî≠çsäÆóπë“Çø
+    while(!I2CMaster_isTWINT()) {
+ 118:	0e 94 66 00 	call	0xcc	; 0xcc <I2CMaster_isTWINT>
+ 11c:	88 23       	and	r24, r24
+ 11e:	e1 f3       	breq	.-8      	; 0x118 <I2CMaster_start+0xe>
+    }
+
+	// Ç‹Ç∏ÅAÉAÉhÉåÉXÇ1ÉrÉbÉgç∂Ç…ÉVÉtÉgÇµÅA
+	// éÛêMÇÃèÍçáÇÕâ∫à 1ÉrÉbÉgÇ1Ç…Ç∑ÇÈÅB
+	// ëóêMÇÃèÍçáÇÕâ∫à 1ÉrÉbÉgÇÕ0Ç…Ç∑ÇÈÅB
+    address <<= 1;
+ 120:	80 2f       	mov	r24, r16
+ 122:	88 0f       	add	r24, r24
+	
+	switch(mode) {
+ 124:	11 23       	and	r17, r17
+ 126:	19 f0       	breq	.+6      	; 0x12e <I2CMaster_start+0x24>
+ 128:	11 30       	cpi	r17, 0x01	; 1
+ 12a:	21 f4       	brne	.+8      	; 0x134 <I2CMaster_start+0x2a>
+ 12c:	02 c0       	rjmp	.+4      	; 0x132 <I2CMaster_start+0x28>
+		case WRITE:
+		    address &= 0b11111110;  // address = 0bxxxxxxx0 Ç…
+ 12e:	8e 7f       	andi	r24, 0xFE	; 254
+		    break;
+ 130:	01 c0       	rjmp	.+2      	; 0x134 <I2CMaster_start+0x2a>
+	    case READ:
+		    address |= 0b00000001;   // address = 0bxxxxxxx1Ç…
+ 132:	81 60       	ori	r24, 0x01	; 1
+		    break;
+	}
+	
+	// ÉXÉåÅ[ÉuÉAÉhÉåÉXÇÃëóêM
+    I2CMaster_write(address);
+ 134:	0e 94 74 00 	call	0xe8	; 0xe8 <I2CMaster_write>
+}
+ 138:	1f 91       	pop	r17
+ 13a:	0f 91       	pop	r16
+ 13c:	08 95       	ret
+
+0000013e <waitMicrosec>:
+/**
+ * É}ÉCÉNÉçïbë“ã@
+ * @param   usec    É}ÉCÉNÉçïb
+ * */
+void waitMicrosec(unsigned int usec) {
+    while(--usec) {
+ 13e:	01 97       	sbiw	r24, 0x01	; 1
+ 140:	31 f0       	breq	.+12     	; 0x14e <waitMicrosec+0x10>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 142:	22 e0       	ldi	r18, 0x02	; 2
+ 144:	2a 95       	dec	r18
+ 146:	f1 f7       	brne	.-4      	; 0x144 <waitMicrosec+0x6>
+ 148:	00 c0       	rjmp	.+0      	; 0x14a <waitMicrosec+0xc>
+ 14a:	01 97       	sbiw	r24, 0x01	; 1
+ 14c:	d1 f7       	brne	.-12     	; 0x142 <waitMicrosec+0x4>
+ 14e:	08 95       	ret
+
+00000150 <waitMillisec>:
+/***
+ * É~Éäïbë“ã@
+ * @param   msec    É~Éäïb
+ * */
+void waitMillisec(unsigned int msec) {
+    while(--msec) {
+ 150:	01 97       	sbiw	r24, 0x01	; 1
+ 152:	41 f0       	breq	.+16     	; 0x164 <waitMillisec+0x14>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 154:	ef ec       	ldi	r30, 0xCF	; 207
+ 156:	f7 e0       	ldi	r31, 0x07	; 7
+ 158:	31 97       	sbiw	r30, 0x01	; 1
+ 15a:	f1 f7       	brne	.-4      	; 0x158 <waitMillisec+0x8>
+ 15c:	00 c0       	rjmp	.+0      	; 0x15e <waitMillisec+0xe>
+ 15e:	00 00       	nop
+ 160:	01 97       	sbiw	r24, 0x01	; 1
+ 162:	c1 f7       	brne	.-16     	; 0x154 <waitMillisec+0x4>
+ 164:	08 95       	ret
+
+00000166 <rcvdat>:
+* @param    cmd    PS„Ç≥„É≥„Éà„É≠„Éº„É©„Å´ÈÄÅ„Çã„Ç≥„Éû„É≥„Éâ
+* @return   PS„Ç≥„É≥„Éà„É≠„Éº„É©„Åã„Çâ„ÅÆ‰ø°Âè∑
+* */
+
+int rcvdat(int cmd)
+{
+ 166:	2f 92       	push	r2
+ 168:	3f 92       	push	r3
+ 16a:	4f 92       	push	r4
+ 16c:	5f 92       	push	r5
+ 16e:	6f 92       	push	r6
+ 170:	7f 92       	push	r7
+ 172:	8f 92       	push	r8
+ 174:	9f 92       	push	r9
+ 176:	af 92       	push	r10
+ 178:	bf 92       	push	r11
+ 17a:	cf 92       	push	r12
+ 17c:	df 92       	push	r13
+ 17e:	ef 92       	push	r14
+ 180:	ff 92       	push	r15
+ 182:	0f 93       	push	r16
+ 184:	1f 93       	push	r17
+ 186:	cf 93       	push	r28
+ 188:	df 93       	push	r29
+ 18a:	6c 01       	movw	r12, r24
+    int dat=0,i;
+    *psPin.port |= _BV(psPin.clk);  // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº®„Å´„Åó„Å¶„Åä„Åè
+ 18c:	e0 91 00 01 	lds	r30, 0x0100
+ 190:	f0 91 01 01 	lds	r31, 0x0101
+ 194:	40 81       	ld	r20, Z
+ 196:	21 e0       	ldi	r18, 0x01	; 1
+ 198:	30 e0       	ldi	r19, 0x00	; 0
+ 19a:	c9 01       	movw	r24, r18
+ 19c:	00 90 07 01 	lds	r0, 0x0107
+ 1a0:	02 c0       	rjmp	.+4      	; 0x1a6 <rcvdat+0x40>
+ 1a2:	88 0f       	add	r24, r24
+ 1a4:	99 1f       	adc	r25, r25
+ 1a6:	0a 94       	dec	r0
+ 1a8:	e2 f7       	brpl	.-8      	; 0x1a2 <rcvdat+0x3c>
+ 1aa:	84 2b       	or	r24, r20
+ 1ac:	80 83       	st	Z, r24
+
+    // „ÇØ„É≠„ÉÉ„ÇØÁ´ã‰∏ã„Çä„ÅßÂá∫Âäõ„ÄÅÁ´ã„Å°‰∏ä„Åå„Çä„ÅßÂÖ•Âäõ
+    for(i=0;i<8;i++)
+ 1ae:	00 e0       	ldi	r16, 0x00	; 0
+ 1b0:	10 e0       	ldi	r17, 0x00	; 0
+* @return   PS„Ç≥„É≥„Éà„É≠„Éº„É©„Åã„Çâ„ÅÆ‰ø°Âè∑
+* */
+
+int rcvdat(int cmd)
+{
+    int dat=0,i;
+ 1b2:	66 24       	eor	r6, r6
+ 1b4:	77 24       	eor	r7, r7
+    *psPin.port |= _BV(psPin.clk);  // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº®„Å´„Åó„Å¶„Åä„Åè
+
+    // „ÇØ„É≠„ÉÉ„ÇØÁ´ã‰∏ã„Çä„ÅßÂá∫Âäõ„ÄÅÁ´ã„Å°‰∏ä„Åå„Çä„ÅßÂÖ•Âäõ
+    for(i=0;i<8;i++)
+    {
+        if((cmd & ~_BV(i)) == cmd) {    // iÁï™ÁõÆ„ÅÆ„Éì„ÉÉ„Éà„Åå0„Åã„Å©„ÅÜ„Åã„ÅÆÂà§Âà•
+ 1b6:	c1 e0       	ldi	r28, 0x01	; 1
+ 1b8:	d0 e0       	ldi	r29, 0x00	; 0
+            *psPin.port &= ~_BV(psPin.cmd);
+        } else{
+            *psPin.port |= _BV(psPin.cmd);
+ 1ba:	0f 2e       	mov	r0, r31
+ 1bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1be:	ef 2e       	mov	r14, r31
+ 1c0:	f1 e0       	ldi	r31, 0x01	; 1
+ 1c2:	ff 2e       	mov	r15, r31
+ 1c4:	f0 2d       	mov	r31, r0
+ 1c6:	0f 2e       	mov	r0, r31
+ 1c8:	f5 e0       	ldi	r31, 0x05	; 5
+ 1ca:	2f 2e       	mov	r2, r31
+ 1cc:	33 24       	eor	r3, r3
+ 1ce:	f0 2d       	mov	r31, r0
+ 1d0:	2e 0c       	add	r2, r14
+ 1d2:	3f 1c       	adc	r3, r15
+        }
+
+        waitMicrosec(5);
+
+        // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº¨„Å´
+        *psPin.port &= ~_BV(psPin.clk);
+ 1d4:	0f 2e       	mov	r0, r31
+ 1d6:	f7 e0       	ldi	r31, 0x07	; 7
+ 1d8:	4f 2e       	mov	r4, r31
+ 1da:	55 24       	eor	r5, r5
+ 1dc:	f0 2d       	mov	r31, r0
+ 1de:	4e 0c       	add	r4, r14
+ 1e0:	5f 1c       	adc	r5, r15
+    *psPin.port |= _BV(psPin.clk);  // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº®„Å´„Åó„Å¶„Åä„Åè
+
+    // „ÇØ„É≠„ÉÉ„ÇØÁ´ã‰∏ã„Çä„ÅßÂá∫Âäõ„ÄÅÁ´ã„Å°‰∏ä„Åå„Çä„ÅßÂÖ•Âäõ
+    for(i=0;i<8;i++)
+    {
+        if((cmd & ~_BV(i)) == cmd) {    // iÁï™ÁõÆ„ÅÆ„Éì„ÉÉ„Éà„Åå0„Åã„Å©„ÅÜ„Åã„ÅÆÂà§Âà•
+ 1e2:	5e 01       	movw	r10, r28
+ 1e4:	00 2e       	mov	r0, r16
+ 1e6:	02 c0       	rjmp	.+4      	; 0x1ec <rcvdat+0x86>
+ 1e8:	aa 0c       	add	r10, r10
+ 1ea:	bb 1c       	adc	r11, r11
+ 1ec:	0a 94       	dec	r0
+ 1ee:	e2 f7       	brpl	.-8      	; 0x1e8 <rcvdat+0x82>
+ 1f0:	45 01       	movw	r8, r10
+ 1f2:	80 94       	com	r8
+ 1f4:	90 94       	com	r9
+ 1f6:	c4 01       	movw	r24, r8
+ 1f8:	8c 21       	and	r24, r12
+ 1fa:	9d 21       	and	r25, r13
+ 1fc:	8c 15       	cp	r24, r12
+ 1fe:	9d 05       	cpc	r25, r13
+ 200:	81 f4       	brne	.+32     	; 0x222 <rcvdat+0xbc>
+            *psPin.port &= ~_BV(psPin.cmd);
+ 202:	d7 01       	movw	r26, r14
+ 204:	ed 91       	ld	r30, X+
+ 206:	fc 91       	ld	r31, X
+ 208:	20 81       	ld	r18, Z
+ 20a:	ce 01       	movw	r24, r28
+ 20c:	d1 01       	movw	r26, r2
+ 20e:	0c 90       	ld	r0, X
+ 210:	02 c0       	rjmp	.+4      	; 0x216 <rcvdat+0xb0>
+ 212:	88 0f       	add	r24, r24
+ 214:	99 1f       	adc	r25, r25
+ 216:	0a 94       	dec	r0
+ 218:	e2 f7       	brpl	.-8      	; 0x212 <rcvdat+0xac>
+ 21a:	80 95       	com	r24
+ 21c:	82 23       	and	r24, r18
+ 21e:	80 83       	st	Z, r24
+ 220:	0e c0       	rjmp	.+28     	; 0x23e <rcvdat+0xd8>
+        } else{
+            *psPin.port |= _BV(psPin.cmd);
+ 222:	d7 01       	movw	r26, r14
+ 224:	ed 91       	ld	r30, X+
+ 226:	fc 91       	ld	r31, X
+ 228:	20 81       	ld	r18, Z
+ 22a:	ce 01       	movw	r24, r28
+ 22c:	d1 01       	movw	r26, r2
+ 22e:	0c 90       	ld	r0, X
+ 230:	02 c0       	rjmp	.+4      	; 0x236 <rcvdat+0xd0>
+ 232:	88 0f       	add	r24, r24
+ 234:	99 1f       	adc	r25, r25
+ 236:	0a 94       	dec	r0
+ 238:	e2 f7       	brpl	.-8      	; 0x232 <rcvdat+0xcc>
+ 23a:	82 2b       	or	r24, r18
+ 23c:	80 83       	st	Z, r24
+        }
+
+        waitMicrosec(5);
+ 23e:	85 e0       	ldi	r24, 0x05	; 5
+ 240:	90 e0       	ldi	r25, 0x00	; 0
+ 242:	0e 94 9f 00 	call	0x13e	; 0x13e <waitMicrosec>
+
+        // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº¨„Å´
+        *psPin.port &= ~_BV(psPin.clk);
+ 246:	d7 01       	movw	r26, r14
+ 248:	ed 91       	ld	r30, X+
+ 24a:	fc 91       	ld	r31, X
+ 24c:	20 81       	ld	r18, Z
+ 24e:	ce 01       	movw	r24, r28
+ 250:	d2 01       	movw	r26, r4
+ 252:	0c 90       	ld	r0, X
+ 254:	02 c0       	rjmp	.+4      	; 0x25a <rcvdat+0xf4>
+ 256:	88 0f       	add	r24, r24
+ 258:	99 1f       	adc	r25, r25
+ 25a:	0a 94       	dec	r0
+ 25c:	e2 f7       	brpl	.-8      	; 0x256 <rcvdat+0xf0>
+ 25e:	80 95       	com	r24
+ 260:	82 23       	and	r24, r18
+ 262:	80 83       	st	Z, r24
+        waitMicrosec(5);
+ 264:	85 e0       	ldi	r24, 0x05	; 5
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	0e 94 9f 00 	call	0x13e	; 0x13e <waitMicrosec>
+
+        if(bit_is_set(*psPin.pin, psPin.dat)){
+ 26c:	a2 e0       	ldi	r26, 0x02	; 2
+ 26e:	b1 e0       	ldi	r27, 0x01	; 1
+ 270:	ed 91       	ld	r30, X+
+ 272:	fc 91       	ld	r31, X
+ 274:	11 97       	sbiw	r26, 0x01	; 1
+ 276:	80 81       	ld	r24, Z
+ 278:	90 e0       	ldi	r25, 0x00	; 0
+ 27a:	e4 e0       	ldi	r30, 0x04	; 4
+ 27c:	f1 e0       	ldi	r31, 0x01	; 1
+ 27e:	00 80       	ld	r0, Z
+ 280:	02 c0       	rjmp	.+4      	; 0x286 <rcvdat+0x120>
+ 282:	95 95       	asr	r25
+ 284:	87 95       	ror	r24
+ 286:	0a 94       	dec	r0
+ 288:	e2 f7       	brpl	.-8      	; 0x282 <rcvdat+0x11c>
+ 28a:	80 ff       	sbrs	r24, 0
+ 28c:	03 c0       	rjmp	.+6      	; 0x294 <rcvdat+0x12e>
+            dat |= _BV(i);
+ 28e:	6a 28       	or	r6, r10
+ 290:	7b 28       	or	r7, r11
+ 292:	02 c0       	rjmp	.+4      	; 0x298 <rcvdat+0x132>
+        } else {
+            dat &= ~_BV(i);
+ 294:	68 20       	and	r6, r8
+ 296:	79 20       	and	r7, r9
+        }
+
+        // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÈÄ≤„ÇÅ„Çã
+        *psPin.port |= _BV(psPin.clk);
+ 298:	d7 01       	movw	r26, r14
+ 29a:	ed 91       	ld	r30, X+
+ 29c:	fc 91       	ld	r31, X
+ 29e:	20 81       	ld	r18, Z
+ 2a0:	ce 01       	movw	r24, r28
+ 2a2:	d2 01       	movw	r26, r4
+ 2a4:	0c 90       	ld	r0, X
+ 2a6:	02 c0       	rjmp	.+4      	; 0x2ac <rcvdat+0x146>
+ 2a8:	88 0f       	add	r24, r24
+ 2aa:	99 1f       	adc	r25, r25
+ 2ac:	0a 94       	dec	r0
+ 2ae:	e2 f7       	brpl	.-8      	; 0x2a8 <rcvdat+0x142>
+ 2b0:	82 2b       	or	r24, r18
+ 2b2:	80 83       	st	Z, r24
+{
+    int dat=0,i;
+    *psPin.port |= _BV(psPin.clk);  // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÔº®„Å´„Åó„Å¶„Åä„Åè
+
+    // „ÇØ„É≠„ÉÉ„ÇØÁ´ã‰∏ã„Çä„ÅßÂá∫Âäõ„ÄÅÁ´ã„Å°‰∏ä„Åå„Çä„ÅßÂÖ•Âäõ
+    for(i=0;i<8;i++)
+ 2b4:	0f 5f       	subi	r16, 0xFF	; 255
+ 2b6:	1f 4f       	sbci	r17, 0xFF	; 255
+ 2b8:	08 30       	cpi	r16, 0x08	; 8
+ 2ba:	11 05       	cpc	r17, r1
+ 2bc:	09 f0       	breq	.+2      	; 0x2c0 <rcvdat+0x15a>
+ 2be:	91 cf       	rjmp	.-222    	; 0x1e2 <rcvdat+0x7c>
+
+        // „ÇØ„É≠„ÉÉ„ÇØ„ÇíÈÄ≤„ÇÅ„Çã
+        *psPin.port |= _BV(psPin.clk);
+    }
+
+    waitMicrosec(5);
+ 2c0:	85 e0       	ldi	r24, 0x05	; 5
+ 2c2:	90 e0       	ldi	r25, 0x00	; 0
+ 2c4:	0e 94 9f 00 	call	0x13e	; 0x13e <waitMicrosec>
+    // CMD„ÇíÔº®„Å´
+    *psPin.port |= _BV(psPin.cmd);
+ 2c8:	e0 91 00 01 	lds	r30, 0x0100
+ 2cc:	f0 91 01 01 	lds	r31, 0x0101
+ 2d0:	40 81       	ld	r20, Z
+ 2d2:	21 e0       	ldi	r18, 0x01	; 1
+ 2d4:	30 e0       	ldi	r19, 0x00	; 0
+ 2d6:	c9 01       	movw	r24, r18
+ 2d8:	00 90 05 01 	lds	r0, 0x0105
+ 2dc:	02 c0       	rjmp	.+4      	; 0x2e2 <rcvdat+0x17c>
+ 2de:	88 0f       	add	r24, r24
+ 2e0:	99 1f       	adc	r25, r25
+ 2e2:	0a 94       	dec	r0
+ 2e4:	e2 f7       	brpl	.-8      	; 0x2de <rcvdat+0x178>
+ 2e6:	84 2b       	or	r24, r20
+ 2e8:	80 83       	st	Z, r24
+
+    return dat;
+}
+ 2ea:	86 2d       	mov	r24, r6
+ 2ec:	97 2d       	mov	r25, r7
+ 2ee:	df 91       	pop	r29
+ 2f0:	cf 91       	pop	r28
+ 2f2:	1f 91       	pop	r17
+ 2f4:	0f 91       	pop	r16
+ 2f6:	ff 90       	pop	r15
+ 2f8:	ef 90       	pop	r14
+ 2fa:	df 90       	pop	r13
+ 2fc:	cf 90       	pop	r12
+ 2fe:	bf 90       	pop	r11
+ 300:	af 90       	pop	r10
+ 302:	9f 90       	pop	r9
+ 304:	8f 90       	pop	r8
+ 306:	7f 90       	pop	r7
+ 308:	6f 90       	pop	r6
+ 30a:	5f 90       	pop	r5
+ 30c:	4f 90       	pop	r4
+ 30e:	3f 90       	pop	r3
+ 310:	2f 90       	pop	r2
+ 312:	08 95       	ret
+
+00000314 <connectPad>:
+
+/**
+ * PS„Ç≥„É≥„Éà„É≠„Éº„É©„ÅÆÂÖ•Âäõ„Åï„Çå„Å¶„ÅÑ„Çã„Ç≠„Éº„ÇíÂèñÂæó„Åô„Çã
+ * @return  ÂÖ•Âäõ„Åï„Çå„ÅüÂÄ§
+ * */
+PsPad connectPad(PsPin *pin) {
+ 314:	8f 92       	push	r8
+ 316:	9f 92       	push	r9
+ 318:	af 92       	push	r10
+ 31a:	bf 92       	push	r11
+ 31c:	cf 92       	push	r12
+ 31e:	df 92       	push	r13
+ 320:	ef 92       	push	r14
+ 322:	ff 92       	push	r15
+ 324:	0f 93       	push	r16
+ 326:	1f 93       	push	r17
+ 328:	df 93       	push	r29
+ 32a:	cf 93       	push	r28
+ 32c:	cd b7       	in	r28, 0x3d	; 61
+ 32e:	de b7       	in	r29, 0x3e	; 62
+ 330:	28 97       	sbiw	r28, 0x08	; 8
+ 332:	0f b6       	in	r0, 0x3f	; 63
+ 334:	f8 94       	cli
+ 336:	de bf       	out	0x3e, r29	; 62
+ 338:	0f be       	out	0x3f, r0	; 63
+ 33a:	cd bf       	out	0x3d, r28	; 61
+    psPin = *pin;
+ 33c:	e0 e0       	ldi	r30, 0x00	; 0
+ 33e:	f1 e0       	ldi	r31, 0x01	; 1
+ 340:	28 2f       	mov	r18, r24
+ 342:	39 2f       	mov	r19, r25
+ 344:	d9 01       	movw	r26, r18
+ 346:	88 e0       	ldi	r24, 0x08	; 8
+ 348:	0d 90       	ld	r0, X+
+ 34a:	01 92       	st	Z+, r0
+ 34c:	81 50       	subi	r24, 0x01	; 1
+ 34e:	e1 f7       	brne	.-8      	; 0x348 <connectPad+0x34>
+    PsPad pad;
+    *psPin.port &= ~_BV(psPin.sel);
+ 350:	e0 91 00 01 	lds	r30, 0x0100
+ 354:	f0 91 01 01 	lds	r31, 0x0101
+ 358:	20 81       	ld	r18, Z
+ 35a:	01 e0       	ldi	r16, 0x01	; 1
+ 35c:	10 e0       	ldi	r17, 0x00	; 0
+ 35e:	c8 01       	movw	r24, r16
+ 360:	00 90 06 01 	lds	r0, 0x0106
+ 364:	02 c0       	rjmp	.+4      	; 0x36a <connectPad+0x56>
+ 366:	88 0f       	add	r24, r24
+ 368:	99 1f       	adc	r25, r25
+ 36a:	0a 94       	dec	r0
+ 36c:	e2 f7       	brpl	.-8      	; 0x366 <connectPad+0x52>
+ 36e:	80 95       	com	r24
+ 370:	82 23       	and	r24, r18
+ 372:	80 83       	st	Z, r24
+    waitMillisec(10);
+ 374:	8a e0       	ldi	r24, 0x0A	; 10
+ 376:	90 e0       	ldi	r25, 0x00	; 0
+ 378:	0e 94 a8 00 	call	0x150	; 0x150 <waitMillisec>
+
+    rcvdat(0x01);
+ 37c:	81 e0       	ldi	r24, 0x01	; 1
+ 37e:	90 e0       	ldi	r25, 0x00	; 0
+ 380:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+    pad.id = rcvdat(0x42);
+ 384:	82 e4       	ldi	r24, 0x42	; 66
+ 386:	90 e0       	ldi	r25, 0x00	; 0
+ 388:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 38c:	c8 2e       	mov	r12, r24
+    pad.chk = rcvdat(0x00);
+ 38e:	80 e0       	ldi	r24, 0x00	; 0
+ 390:	90 e0       	ldi	r25, 0x00	; 0
+ 392:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 396:	b8 2e       	mov	r11, r24
+    pad.key1.byteKey = ~rcvdat(0x00);
+ 398:	80 e0       	ldi	r24, 0x00	; 0
+ 39a:	90 e0       	ldi	r25, 0x00	; 0
+ 39c:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3a0:	e8 2e       	mov	r14, r24
+    pad.key2.byteKey = ~rcvdat(0x00);
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	90 e0       	ldi	r25, 0x00	; 0
+ 3a6:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3aa:	d8 2e       	mov	r13, r24
+    pad.analogRightSide = rcvdat(0x00);
+ 3ac:	80 e0       	ldi	r24, 0x00	; 0
+ 3ae:	90 e0       	ldi	r25, 0x00	; 0
+ 3b0:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3b4:	a8 2e       	mov	r10, r24
+    pad.analogRightHide = rcvdat(0x00);
+ 3b6:	80 e0       	ldi	r24, 0x00	; 0
+ 3b8:	90 e0       	ldi	r25, 0x00	; 0
+ 3ba:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3be:	98 2e       	mov	r9, r24
+    pad.analogLeftSide = rcvdat(0x00);
+ 3c0:	80 e0       	ldi	r24, 0x00	; 0
+ 3c2:	90 e0       	ldi	r25, 0x00	; 0
+ 3c4:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3c8:	f8 2e       	mov	r15, r24
+    pad.analogLeftHide = rcvdat(0x00);
+ 3ca:	80 e0       	ldi	r24, 0x00	; 0
+ 3cc:	90 e0       	ldi	r25, 0x00	; 0
+ 3ce:	0e 94 b3 00 	call	0x166	; 0x166 <rcvdat>
+ 3d2:	88 2e       	mov	r8, r24
+    waitMicrosec(10);
+ 3d4:	8a e0       	ldi	r24, 0x0A	; 10
+ 3d6:	90 e0       	ldi	r25, 0x00	; 0
+ 3d8:	0e 94 9f 00 	call	0x13e	; 0x13e <waitMicrosec>
+
+    *psPin.port |= _BV(psPin.sel);
+ 3dc:	e0 91 00 01 	lds	r30, 0x0100
+ 3e0:	f0 91 01 01 	lds	r31, 0x0101
+ 3e4:	80 81       	ld	r24, Z
+ 3e6:	00 90 06 01 	lds	r0, 0x0106
+ 3ea:	02 c0       	rjmp	.+4      	; 0x3f0 <connectPad+0xdc>
+ 3ec:	00 0f       	add	r16, r16
+ 3ee:	11 1f       	adc	r17, r17
+ 3f0:	0a 94       	dec	r0
+ 3f2:	e2 f7       	brpl	.-8      	; 0x3ec <connectPad+0xd8>
+ 3f4:	08 2b       	or	r16, r24
+ 3f6:	00 83       	st	Z, r16
+    waitMillisec(10);
+ 3f8:	8a e0       	ldi	r24, 0x0A	; 10
+ 3fa:	90 e0       	ldi	r25, 0x00	; 0
+ 3fc:	0e 94 a8 00 	call	0x150	; 0x150 <waitMillisec>
+    waitMillisec(10);
+
+    rcvdat(0x01);
+    pad.id = rcvdat(0x42);
+    pad.chk = rcvdat(0x00);
+    pad.key1.byteKey = ~rcvdat(0x00);
+ 400:	4e 2d       	mov	r20, r14
+ 402:	40 95       	com	r20
+    pad.key2.byteKey = ~rcvdat(0x00);
+ 404:	5d 2d       	mov	r21, r13
+ 406:	50 95       	com	r21
+
+    *psPin.port |= _BV(psPin.sel);
+    waitMillisec(10);
+
+    return pad;
+}
+ 408:	2c 2d       	mov	r18, r12
+ 40a:	3b 2d       	mov	r19, r11
+ 40c:	6a 2d       	mov	r22, r10
+ 40e:	79 2d       	mov	r23, r9
+ 410:	8f 2d       	mov	r24, r15
+ 412:	98 2d       	mov	r25, r8
+ 414:	28 96       	adiw	r28, 0x08	; 8
+ 416:	0f b6       	in	r0, 0x3f	; 63
+ 418:	f8 94       	cli
+ 41a:	de bf       	out	0x3e, r29	; 62
+ 41c:	0f be       	out	0x3f, r0	; 63
+ 41e:	cd bf       	out	0x3d, r28	; 61
+ 420:	cf 91       	pop	r28
+ 422:	df 91       	pop	r29
+ 424:	1f 91       	pop	r17
+ 426:	0f 91       	pop	r16
+ 428:	ff 90       	pop	r15
+ 42a:	ef 90       	pop	r14
+ 42c:	df 90       	pop	r13
+ 42e:	cf 90       	pop	r12
+ 430:	bf 90       	pop	r11
+ 432:	af 90       	pop	r10
+ 434:	9f 90       	pop	r9
+ 436:	8f 90       	pop	r8
+ 438:	08 95       	ret
+
+0000043a <connect_legmotor>:
+#include <avr/io.h>
+#include "I2CMaster.h"
+#include "motor_structure.h"
+
+//ë´âÒÇËÉÇÅ[É^
+void connect_legmotor(AllMotorStatus * motordata){
+ 43a:	cf 93       	push	r28
+ 43c:	df 93       	push	r29
+ 43e:	ec 01       	movw	r28, r24
+	I2CMaster_start(LEG_MOTOR_ADDRESS, WRITE);
+ 440:	81 e0       	ldi	r24, 0x01	; 1
+ 442:	60 e0       	ldi	r22, 0x00	; 0
+ 444:	0e 94 85 00 	call	0x10a	; 0x10a <I2CMaster_start>
+	I2CMaster_write(motordata->leg_motor_right.byte);
+ 448:	89 81       	ldd	r24, Y+1	; 0x01
+ 44a:	0e 94 74 00 	call	0xe8	; 0xe8 <I2CMaster_write>
+	I2CMaster_write(motordata->leg_motor_left.byte);
+ 44e:	88 81       	ld	r24, Y
+ 450:	0e 94 74 00 	call	0xe8	; 0xe8 <I2CMaster_write>
+	I2CMaster_stop();
+ 454:	0e 94 51 00 	call	0xa2	; 0xa2 <I2CMaster_stop>
+}
+ 458:	df 91       	pop	r29
+ 45a:	cf 91       	pop	r28
+ 45c:	08 95       	ret
+
+0000045e <front_legmotor>:
+ */
+void front_legmotor( AllMotorStatus * motordata ){
+  motordata -> leg_motor_left.direction = FORWARD;
+  motordata -> leg_motor_right.direction = FORWARD;
+
+  motordata -> leg_motor_left.speed = RUN_SPEED;
+ 45e:	2e ef       	ldi	r18, 0xFE	; 254
+ 460:	fc 01       	movw	r30, r24
+ 462:	20 83       	st	Z, r18
+  motordata -> leg_motor_right.speed = RUN_SPEED;
+ 464:	21 83       	std	Z+1, r18	; 0x01
+
+  connect_legmotor(motordata);
+ 466:	0e 94 1d 02 	call	0x43a	; 0x43a <connect_legmotor>
+}
+ 46a:	08 95       	ret
+
+0000046c <back_legmotor>:
+ */
+void back_legmotor( AllMotorStatus * motordata ){
+  motordata -> leg_motor_left.direction = BACK;
+  motordata -> leg_motor_right.direction = BACK;
+
+  motordata -> leg_motor_left.speed = RUN_SPEED;
+ 46c:	2f ef       	ldi	r18, 0xFF	; 255
+ 46e:	fc 01       	movw	r30, r24
+ 470:	20 83       	st	Z, r18
+  motordata -> leg_motor_right.speed = RUN_SPEED;
+ 472:	21 83       	std	Z+1, r18	; 0x01
+
+  connect_legmotor(motordata);
+ 474:	0e 94 1d 02 	call	0x43a	; 0x43a <connect_legmotor>
+}
+ 478:	08 95       	ret
+
+0000047a <turn_right_legmotor>:
+ */
+void turn_right_legmotor( AllMotorStatus * motordata ){
+  motordata -> leg_motor_left.direction = FORWARD;
+  motordata -> leg_motor_right.direction = BACK;
+
+  motordata -> leg_motor_left.speed = TURN_SPEED;
+ 47a:	2e ef       	ldi	r18, 0xFE	; 254
+ 47c:	fc 01       	movw	r30, r24
+ 47e:	20 83       	st	Z, r18
+  motordata -> leg_motor_right.speed = TURN_SPEED;
+ 480:	2f ef       	ldi	r18, 0xFF	; 255
+ 482:	21 83       	std	Z+1, r18	; 0x01
+
+  connect_legmotor(motordata);
+ 484:	0e 94 1d 02 	call	0x43a	; 0x43a <connect_legmotor>
+}
+ 488:	08 95       	ret
+
+0000048a <turn_left_legmotor>:
+ */
+void turn_left_legmotor( AllMotorStatus * motordata ){
+  motordata -> leg_motor_left.direction = BACK;
+  motordata -> leg_motor_right.direction = FORWARD;
+
+  motordata -> leg_motor_left.speed = TURN_SPEED;
+ 48a:	2f ef       	ldi	r18, 0xFF	; 255
+ 48c:	fc 01       	movw	r30, r24
+ 48e:	20 83       	st	Z, r18
+  motordata -> leg_motor_right.speed = TURN_SPEED;
+ 490:	2e ef       	ldi	r18, 0xFE	; 254
+ 492:	21 83       	std	Z+1, r18	; 0x01
+
+  connect_legmotor(motordata);
+ 494:	0e 94 1d 02 	call	0x43a	; 0x43a <connect_legmotor>
+}
+ 498:	08 95       	ret
+
+0000049a <stop_legmotor>:
+
+/**
+ *  ÂÅúÊ≠¢Âãï‰Ωú
+ * @param Allmotorstatus * motordata
+ */
+void stop_legmotor( AllMotorStatus * motordata ){
+ 49a:	fc 01       	movw	r30, r24
+  motordata -> leg_motor_left.speed = STOP_SPEED;
+ 49c:	80 81       	ld	r24, Z
+ 49e:	81 70       	andi	r24, 0x01	; 1
+ 4a0:	80 83       	st	Z, r24
+  motordata -> leg_motor_right.speed = STOP_SPEED;
+ 4a2:	81 81       	ldd	r24, Z+1	; 0x01
+ 4a4:	81 70       	andi	r24, 0x01	; 1
+ 4a6:	81 83       	std	Z+1, r24	; 0x01
+  connect_legmotor(motordata);
+ 4a8:	cf 01       	movw	r24, r30
+ 4aa:	0e 94 1d 02 	call	0x43a	; 0x43a <connect_legmotor>
+}
+ 4ae:	08 95       	ret
+
+000004b0 <main>:
+#include "legmotor_action.h" // ë´âÒÇËÉÇÅ[É^ÇÃä÷êî
+
+AllMotorStatus motordata;    // ç\ë¢ëÃÇÃÇÃêÈåæ
+
+int main(void)
+{
+ 4b0:	bf 92       	push	r11
+ 4b2:	cf 92       	push	r12
+ 4b4:	df 92       	push	r13
+ 4b6:	ef 92       	push	r14
+ 4b8:	ff 92       	push	r15
+ 4ba:	0f 93       	push	r16
+ 4bc:	1f 93       	push	r17
+ 4be:	df 93       	push	r29
+ 4c0:	cf 93       	push	r28
+ 4c2:	cd b7       	in	r28, 0x3d	; 61
+ 4c4:	de b7       	in	r29, 0x3e	; 62
+ 4c6:	68 97       	sbiw	r28, 0x18	; 24
+ 4c8:	0f b6       	in	r0, 0x3f	; 63
+ 4ca:	f8 94       	cli
+ 4cc:	de bf       	out	0x3e, r29	; 62
+ 4ce:	0f be       	out	0x3f, r0	; 63
+ 4d0:	cd bf       	out	0x3d, r28	; 61
+  //  PSÉRÉìÉgÉçÅ[ÉâÇÃíËã`
+  PsPin psPin;
+  PsPad psdata;
+  // PORTÇÃê›íË
+  DDRD = 0xDF;
+ 4d2:	8f ed       	ldi	r24, 0xDF	; 223
+ 4d4:	8a b9       	out	0x0a, r24	; 10
+  PORTD = 0x30;
+ 4d6:	80 e3       	ldi	r24, 0x30	; 48
+ 4d8:	8b b9       	out	0x0b, r24	; 11
+  // PINÇÃê›íË
+  psPin.port = &PORTD;
+ 4da:	8b e2       	ldi	r24, 0x2B	; 43
+ 4dc:	90 e0       	ldi	r25, 0x00	; 0
+ 4de:	9a 83       	std	Y+2, r25	; 0x02
+ 4e0:	89 83       	std	Y+1, r24	; 0x01
+  psPin.pin = &PIND;
+ 4e2:	89 e2       	ldi	r24, 0x29	; 41
+ 4e4:	90 e0       	ldi	r25, 0x00	; 0
+ 4e6:	9c 83       	std	Y+4, r25	; 0x04
+ 4e8:	8b 83       	std	Y+3, r24	; 0x03
+  psPin.dat = PIND5;
+ 4ea:	85 e0       	ldi	r24, 0x05	; 5
+ 4ec:	8d 83       	std	Y+5, r24	; 0x05
+  psPin.cmd = PIND2;
+ 4ee:	82 e0       	ldi	r24, 0x02	; 2
+ 4f0:	8e 83       	std	Y+6, r24	; 0x06
+  psPin.sel = PIND4;
+ 4f2:	84 e0       	ldi	r24, 0x04	; 4
+ 4f4:	8f 83       	std	Y+7, r24	; 0x07
+  psPin.clk = PIND3;
+ 4f6:	83 e0       	ldi	r24, 0x03	; 3
+ 4f8:	88 87       	std	Y+8, r24	; 0x08
+
+  //  I2CMasterÇÃèâä˙ê›íË
+  I2CMaster_init(2,I2CMaster_PRESCALER_16);
+ 4fa:	82 e0       	ldi	r24, 0x02	; 2
+ 4fc:	62 e0       	ldi	r22, 0x02	; 2
+ 4fe:	0e 94 48 00 	call	0x90	; 0x90 <I2CMaster_init>
+
+  while(1){
+    psdata = connectPad(&psPin);  // PSÉRÉìÉgÉçÅ[ÉâÅ[Ç©ÇÁÇÃÉRÉ}ÉìÉhÇéÛÇØéÊÇÈ
+ 502:	8e 01       	movw	r16, r28
+ 504:	0f 5f       	subi	r16, 0xFF	; 255
+ 506:	1f 4f       	sbci	r17, 0xFF	; 255
+ 508:	0f 2e       	mov	r0, r31
+ 50a:	f9 e0       	ldi	r31, 0x09	; 9
+ 50c:	ef 2e       	mov	r14, r31
+ 50e:	ff 24       	eor	r15, r15
+ 510:	f0 2d       	mov	r31, r0
+ 512:	ec 0e       	add	r14, r28
+ 514:	fd 1e       	adc	r15, r29
+ 516:	0f 2e       	mov	r0, r31
+ 518:	f1 e1       	ldi	r31, 0x11	; 17
+ 51a:	cf 2e       	mov	r12, r31
+ 51c:	dd 24       	eor	r13, r13
+ 51e:	f0 2d       	mov	r31, r0
+ 520:	cc 0e       	add	r12, r28
+ 522:	dd 1e       	adc	r13, r29
+ 524:	bb 24       	eor	r11, r11
+ 526:	68 94       	set
+ 528:	b3 f8       	bld	r11, 3
+ 52a:	c8 01       	movw	r24, r16
+ 52c:	0e 94 8a 01 	call	0x314	; 0x314 <connectPad>
+ 530:	29 8b       	std	Y+17, r18	; 0x11
+ 532:	3a 8b       	std	Y+18, r19	; 0x12
+ 534:	4b 8b       	std	Y+19, r20	; 0x13
+ 536:	5c 8b       	std	Y+20, r21	; 0x14
+ 538:	6d 8b       	std	Y+21, r22	; 0x15
+ 53a:	7e 8b       	std	Y+22, r23	; 0x16
+ 53c:	8f 8b       	std	Y+23, r24	; 0x17
+ 53e:	98 8f       	std	Y+24, r25	; 0x18
+ 540:	d7 01       	movw	r26, r14
+ 542:	f6 01       	movw	r30, r12
+ 544:	8b 2d       	mov	r24, r11
+ 546:	01 90       	ld	r0, Z+
+ 548:	0d 92       	st	X+, r0
+ 54a:	81 50       	subi	r24, 0x01	; 1
+ 54c:	e1 f7       	brne	.-8      	; 0x546 <__stack+0x47>
+ 54e:	ed cf       	rjmp	.-38     	; 0x52a <__stack+0x2b>
+
+00000550 <_exit>:
+ 550:	f8 94       	cli
+
+00000552 <__stop_program>:
+ 552:	ff cf       	rjmp	.-2      	; 0x552 <__stop_program>
